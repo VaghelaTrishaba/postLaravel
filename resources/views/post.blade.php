@@ -159,11 +159,9 @@
                             'Content-type' : 'application/json',
                         }
                     }).then(response => response.json()).then(data => {
-                        const post = data.data.post[0]; 
+                        const post = data.data.post;
                         const modalbody = document.querySelector("#singlemodal .modal-body");
                         modalbody.innerHTML = "";
-
-
                         modalbody.innerHTML = 
                             `<b>Title :</b> ${post.title}  
                             <br> 

@@ -49,7 +49,7 @@
                                         console.log(response);
 
                                         localStorage.setItem('api_token',response.token);       //save token of user
-                                        window.location.href = "/home";   //redirect to post page 
+                                        window.location.href = "/Post";   //redirect to post page 
                                 },
                                 error : function(xhr,status,error){
                                         alert('Error' + xhr.responseText);  //error in text formate 
