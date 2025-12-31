@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index() //fetch data from post
     {
-        $data['posts']=Post::all(); //fetch all data
+        $data['posts']=Post::with('user')->get(); //fetch all data
         return  response()->json($data);
     }
 
@@ -42,6 +42,7 @@ class PostController extends Controller
        $img ->move(public_path().'/uploads', $image); //move in my  folder public folder ecreate uplode and save in them
 
        $post = Post::create([
+            'user_id' => auth()->id(),
             'title'=> $request->title,
             'description'=> $request->description,
             'image'=>$image,
@@ -54,8 +55,8 @@ class PostController extends Controller
    
     public function show(string $id)  // fetch one record
     {
-        $data['post']=Post::select('id','title','description','image')->where(['id' => $id])->first();
-        return response()->json(['data'=>$data]);
+        $data['post']=Post::select('user_id','id','title','description','image')->with('user')->where(['id' => $id])->first();
+        return response()->json(['data'=>$data,'user name'=>$data['post']->user->name]);
     }
 
 
@@ -64,9 +65,10 @@ class PostController extends Controller
         $ValidationUser=Validator::make(
             $request->all(),
      [
+    
                 'title'=> 'required',
                 'description'=>'required',
-                'image'=>'required|mimes:png,jpg,jpeg,gif',
+                'image'=>'nullable|image|mimes:png,jpg,jpeg,gif',
             ]
         );     
         

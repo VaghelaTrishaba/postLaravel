@@ -9,15 +9,15 @@ return new class extends Migration
    public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
+            $table->foreignId('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->bigIncrements("id");
             $table->string('title');
             $table->string('description');
             $table->string('image');
+             
             $table->timestamps(); 
         });
     }
-
-
     public function down(): void
     {
         Schema::dropIfExists('posts');

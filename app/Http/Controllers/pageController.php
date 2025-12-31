@@ -25,5 +25,10 @@ use Illuminate\Http\Request;
             return view('home');
         }
 
+        public function show()
+        {
+            return view('post');
+        }
+
     }
 ?>

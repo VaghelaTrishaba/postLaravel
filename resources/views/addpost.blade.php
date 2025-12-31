@@ -31,7 +31,6 @@
                 e.preventDefault();
 
                 const token = localStorage.getItem('api_token');
-
                 const title = document.querySelector("#title").value;               //get value
                 const description = document.querySelector("#description").value;
                 const image = document.querySelector("#image").files[0];

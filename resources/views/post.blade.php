@@ -163,7 +163,9 @@
                         const modalbody = document.querySelector("#singlemodal .modal-body");
                         modalbody.innerHTML = "";
                         modalbody.innerHTML = 
-                            `<b>Title :</b> ${post.title}  
+                            `<b>User Id :</b> ${post.user_id}  
+                            <br> 
+                            <b>Title :</b> ${post.title}  
                             <br> 
                             <b>Discription:</b> ${post.description} 
                             <br> 
@@ -201,7 +203,6 @@
             }   
 
             //update data
-
             var updateform = document.querySelector("#updateForm");        //target form 
             updateform.onsubmit = async (e) => {
                 e.preventDefault(); //page refresh nai thay
