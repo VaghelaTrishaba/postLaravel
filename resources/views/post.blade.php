@@ -11,16 +11,19 @@
         <head>
             <title>All Posts</title>
         <style>
-            table {
+            table 
+            {
                 border-collapse: collapse; /* merge borders */
                 width: 80%;
             }
 
-            table, th, td {
+            table, th, td
+            {
                 border: 1px solid black; /* border for all */
             }
 
-            th, td {
+            th, td 
+            {
                 padding: 10px;
                 text-align: center;
             }
